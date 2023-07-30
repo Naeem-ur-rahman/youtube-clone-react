@@ -1,38 +1,385 @@
+* {
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+     outline: none;
+     text-decoration: none;
+     border: none;
+     scroll-behavior: smooth;
+     font-family: 'Roboto', Arial, sans-serif;
+}
+
+:root {
+     --bg-color: #0f0f0f;
+     --bg-second-color: rgba(255, 255, 255, 0.1);
+     --text-color: #f1f1f1;
+     --text-second-color: #aaa;
+     --border-bg-color: .1rem solid var(--bg-color);
+     --border-bg-second-color: .1rem solid var(--bg-second-color);
+}
+
+html {
+     font-size: 62.5%;
+     overflow-x: hidden;
+     color: var(--text-color);
+}
+
+.flex-center {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 1rem;
+}
+
+.btn-circle {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 1rem;
+     background-color: var(--bg-second-color);
+     border-radius: 10rem;
+     height: inherit;
+     cursor: pointer;
+     height: 4rem;
+}
+
+.btn-circle:hover {
+     background-color: var(--text-second-color);
+}
+
+.btn-circle img {
+     width: 2rem;
+     filter: brightness(100);
+}
+
 .App {
-  text-align: center;
+     min-height: 100vh;
+     background-color: var(--bg-color);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+     position: fixed;
+     left: 0;
+     right: 0;
+     background-color: var(--bg-color);
+     height: 7rem;
+     padding: 1rem 2rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     z-index: 100;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#menu img {
+     width: 4rem;
+     cursor: pointer;
+     height: 2.8rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.header .logo>span {
+     display: flex;
+     align-items: center;
+     column-gap: .5rem;
+     font-size: 2rem;
+     color: var(--text-color);
 }
 
-.App-link {
-  color: #61dafb;
+.header .logo img {
+     width: 4rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header .logo span>span>sup {
+     font-size: 1.4rem;
+     color: var(--text-second-color);
+}
+
+.header .SearchBar {
+     display: flex;
+     align-items: center;
+     height: 4rem;
+     border: var(--border-bg-second-color);
+     border-radius: 20rem;
+}
+
+.header .SearchBar input {
+     width: 25vw;
+     padding: 0 1rem;
+     color: var(--text-color);
+     font-size: 1.5rem;
+     background-color: var(--bg-color);
+     border-top-left-radius: inherit;
+     border-bottom-left-radius: inherit;
+}
+
+.header .SearchBar button {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 1rem;
+     background-color: var(--bg-second-color);
+     cursor: pointer;
+     height: inherit;
+     border-top-right-radius: inherit;
+     border-bottom-right-radius: inherit;
+}
+
+.header .SearchBar button img {
+     width: 3rem;
+}
+
+.Profile {
+     height: 4rem;
+     border-radius: 10rem;
+     cursor: pointer;
+}
+
+.Profile img {
+     height: inherit;
+     border-radius: inherit;
+}
+
+.Main {
+     padding-top: 7rem;
+     display: flex;
+}
+
+.navbar {
+     position: fixed;
+     background-color: var(--bg-color);
+     min-height: 100vh;
+     max-height: 100vh;
+     width: 8rem;
+     z-index: 100;
+}
+
+.navbar .first-nav {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+.navbar .first-nav .nav-link {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     cursor: pointer;
+     width: 100%;
+     padding: 2rem 0;
+     border-radius: .5rem;
+}
+
+.navbar .first-nav .nav-link:hover {
+     background-color: var(--bg-second-color);
+}
+
+.navbar .first-nav .nav-link img {
+     width: 3rem;
+}
+
+/* Second Navbar */
+
+.NavBarClicked {
+     position: fixed;
+     background-color: var(--bg-color);
+     min-height: 100vh;
+     width: 25rem;
+     scrollbar-color: var(--text-second-color);
+     padding: 0 1rem;
+     z-index: 100;
+}
+
+.NavBarClicked .second-nav {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     border-bottom: var(--border-bg-second-color);
+     padding: 2rem 0;
+     padding: .5rem 0;
+}
+
+.NavBarClicked .second-nav .nav-link {
+     display: flex;
+     align-items: center;
+     cursor: pointer;
+     font-size: 1.5rem;
+     gap: 3rem;
+     width: 100%;
+     border-radius: .5rem;
+     padding: 1rem;
+}
+
+.NavBarClicked .second-nav .nav-link:hover,
+.NavBarClicked .second-nav .nav-link.active {
+     background-color: var(--bg-second-color);
+}
+
+.NavBarClicked .second-nav .nav-link img {
+     width: 2.5rem;
+}
+
+
+.VideosContainer {
+     background-color: var(--bg-color);
+     width: 100%;
+     min-height: 100vh;
+     margin: 0 2rem;
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr;
+     gap: 2rem;
+     padding: 2rem 1rem;
+     padding-left: 8rem;
+}
+
+.HomeVideos {
+     display: flex;
+     flex-direction: column;
+     border-radius: 2rem;
+     transition: .3s ease;
+}
+
+.HomeVideos:hover {
+     background-color: var(--bg-second-color);
+     transform: scale(1.01);
+}
+
+.HomeVideos .up {
+     border-radius: inherit;
+     height: 25rem;
+}
+
+.HomeVideos .up img {
+     width: 100%;
+     height: 90%;
+     object-fit: cover;
+     border-top-left-radius: inherit;
+     border-top-right-radius: inherit;
+}
+
+.HomeVideos .down {
+     padding: 1rem;
+     padding-top: 1rem;
+     height: 13rem;
+}
+
+.HomeVideos .down .title {
+     font-size: 2rem;
+     color: var(--text-color);
+     padding: 1rem 0;
+}
+
+.HomeVideos .down p {
+     font-size: 1.4rem;
+     color: var(--text-second-color);
+     padding: .5rem 0;
+}
+
+
+/* responsive breakpoints less than 5200px  */
+
+@media (width<=5200px) {
+     html {
+          font-size: 220%;
+     }
+
+     .VideosContainer {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+     }
+}
+
+@media (width<=5000px) {
+     html {
+          font-size: 200%;
+     }
+
+}
+
+@media (width<=4500px) {
+     html {
+          font-size: 180%;
+     }
+}
+
+@media (width<=4000px) {
+     html {
+          font-size: 160%;
+     }
+}
+
+@media (width<=3500px) {
+     html {
+          font-size: 140%;
+     }
+}
+
+@media (width<=3000px) {
+     html {
+          font-size: 120%;
+     }
+}
+
+@media (width<=2500px) {
+     html {
+          font-size: 100%;
+     }
+
+     .VideosContainer {
+          grid-template-columns: 1fr 1fr 1fr;
+     }
+}
+
+@media (width<=2000px) {
+     html {
+          font-size: 80%;
+     }
+}
+
+@media (width<=1500px) {
+     html {
+          font-size: 60%;
+     }
+}
+
+@media (width<=1200px) {
+     html {
+          font-size: 55%;
+     }
+}
+
+@media (width<992px) {
+     html {
+          font-size: 50%;
+     }
+
+     .VideosContainer {
+          grid-template-columns: 1fr 1fr;
+     }
+}
+
+@media (width<769px) {
+     .header .SearchBar button {
+          border-radius: inherit;
+     }
+
+     .btn-circle {
+          display: none;
+     }
+
+}
+
+@media (width<600px) {
+     .VideosContainer {
+          grid-template-columns: 1fr;
+     }
+}
+
+@media (width<480px) {
+     .HomeVideos .down .title {
+          font-size: 1.8rem;
+     }
+}
+
+@media (width<414px) {
+     html {
+          font-size: 40%;
+     }
 }

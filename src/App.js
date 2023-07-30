@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import { HEADER } from './components';
+import Main from './components/Main';
 
 function App() {
+  const [menuClick, setMenuClick] = useState(true);
+
+  const toggleMenuClick = () => {
+    setMenuClick(!menuClick)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <HEADER toggleMenuClick={toggleMenuClick} />
+      <Main menuClick={menuClick} toggleMenuClick={toggleMenuClick} />
     </div>
   );
 }
