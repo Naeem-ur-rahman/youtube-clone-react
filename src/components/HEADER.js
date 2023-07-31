@@ -9,7 +9,12 @@ import Profile from './Profile'
 
 class HEADER extends Component {
      render() {
-          const { toggleMenuClick } = this.props
+          const { toggleMenuClick, getQuery } = this.props
+          const getQueryM = (q) => {
+               console.log('From Header')
+               getQuery(q)
+          }
+
           return (
                <header className='header'>
                     <div className='flex-center'>
@@ -17,7 +22,7 @@ class HEADER extends Component {
                          <Logo />
                     </div>
                     <div className='flex-center'>
-                         <SearchBar />
+                         <SearchBar getQueryM={getQueryM} />
                          <MicroPhone />
                     </div>
                     <div className='flex-center'>

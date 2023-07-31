@@ -7,21 +7,32 @@ export class SearchBar extends Component {
           super(props)
 
           this.state = {
-
+               query: ''
           }
      }
 
+     changeHandler = (e) => {
+          this.setState({
+               query: e.target.value
+          })
+          console.log(e.target.value)
+     }
 
-     searchHandler = () => {
-
+     searchSubmitHandler = (e) => {
+          const { getQueryM } = this.props
+          const { query } = this.state
+          console.log('From SearchBar')
+          getQueryM(query)
+          e.preventDefault()
      }
 
      render() {
+          const { query } = this.state
           return (
-               <div className='SearchBar' title='Search'>
-                    <input type='text' placeholder='Search' />
-                    <button onClick={this.searchHandler}><img src={SearchIcon} alt='SearchIcon'></img></button>
-               </div>
+               <form className='SearchBar' title='Search' onSubmit={this.searchSubmitHandler}>
+                    <input type='text' placeholder='Search' value={query} onChange={this.changeHandler} />
+                    <button type='button' ><img src={SearchIcon} alt='SearchIcon' onClick={this.searchSubmitHandler}></img></button>
+               </form>
           )
      }
 }

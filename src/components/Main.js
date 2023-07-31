@@ -4,11 +4,12 @@ import NavBar from './NavBar'
 
 export class Main extends Component {
      render() {
-          const { menuClick, toggleMenuClick } = this.props
+          const { menuClick, toggleMenuClick, query } = this.props
+          console.log(query + ' From Main')
           return (
                <div className='Main'>
                     <NavBar clicked={menuClick} toggleMenuClick={toggleMenuClick} />
-                    <VideosContainer />
+                    <VideosContainer query={query} />
                </div>
           )
      }

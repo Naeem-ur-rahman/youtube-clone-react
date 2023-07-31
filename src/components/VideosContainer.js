@@ -8,7 +8,8 @@ export class VideosContainer extends Component {
           super(props)
 
           this.state = {
-               videos: []
+               videos: [],
+               q: 'popular videos'
           }
      }
 
@@ -18,23 +19,62 @@ export class VideosContainer extends Component {
                     params: {
                          part: 'snippet',
                          maxResults: 10,
-                         key: 'AIzaSyBMfJXOe8LSXJoO9JQiC8lgpMlfWbJKeTA',
-                         q: 'songs'
+                         key: 'AIzaSyCKZXldwH1a_Bceg1u4ECMXbsxcrzoQJDY',
+                         q: this.state.q
                     }
+               }).catch(err => {
+                    console.log('Error in mount')
+                    console.log(this.state.q)
+                    console.log(this.props.query)
+                    console.log(err)
                })
           console.log(response.data.items)
           this.setState({ videos: response.data.items })
+          console.log('In mount')
+          console.log(this.state.q)
+          console.log(this.props.query)
      }
 
+     componentDidUpdate = async (prevProps) => {
+          if (prevProps.query !== this.props.query) {
+
+               this.setState({
+                    q: this.props.query
+               })
+
+               const response = await youtube.get('search',
+                    {
+                         params: {
+                              part: 'snippet',
+                              maxResults: 10,
+                              key: 'AIzaSyCKZXldwH1a_Bceg1u4ECMXbsxcrzoQJDY',
+                              q: this.props.query
+                         }
+                    }).catch(err => {
+                         console.log('Error in Update')
+                         console.log(this.state.q)
+                         console.log(this.props.query)
+                         console.log(err)
+                    })
+               console.log(response.data.items)
+               this.setState({ videos: response.data.items })
+               console.log('In Update')
+               console.log(this.state.q)
+               console.log(this.props.query)
+
+          }
+     }
 
      render() {
-          return (
-               <div className='VideosContainer'>
-                    {
-                         this.state.videos.map(video => <HomeVideos key={`https://www.youtube.com/embed/${video.id.videoId}`} video={video} />)
-                    }
-               </div>
-          )
+          if (this.state.videos) {
+               return (
+                    <div className='VideosContainer'>
+                         {
+                              this.state.videos.map((video, index) => <HomeVideos key={`${video.id.videoId}${index}`} video={video} />)
+                         }
+                    </div>
+               )
+          }
      }
 }
 

@@ -10,10 +10,17 @@ function App() {
     setMenuClick(!menuClick)
   }
 
+  const [query, setQuery] = useState('');
+
+  const getQuery = (q) => {
+    setQuery(q)
+  }
+  console.log(query + ' From App')
+
   return (
     <div className='App'>
-      <HEADER toggleMenuClick={toggleMenuClick} />
-      <Main menuClick={menuClick} toggleMenuClick={toggleMenuClick} />
+      <HEADER toggleMenuClick={toggleMenuClick} getQuery={getQuery} />
+      <Main menuClick={menuClick} toggleMenuClick={toggleMenuClick} query={query} />
     </div>
   );
 }
