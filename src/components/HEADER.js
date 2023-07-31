@@ -14,7 +14,6 @@ class HEADER extends Component {
                console.log('From Header')
                getQuery(q)
           }
-
           return (
                <header className='header'>
                     <div className='flex-center'>

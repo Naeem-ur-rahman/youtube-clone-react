@@ -273,6 +273,51 @@ html {
      padding: .5rem 0;
 }
 
+/* Video Play Contaniner css */
+
+.VideoPlayContainer {
+     display: flex;
+     justify-content: space-between;
+     background-color: var(--bg-color);
+     width: 100%;
+     min-height: 100vh;
+     margin: 0 2rem;
+     gap: 2rem;
+     padding: 2rem 1rem;
+     padding-left: 8rem;
+}
+
+.VideoFrame {
+     width: 100%;
+}
+
+.VideoFrame iframe {
+     /* width: 80rem;
+     height:55rem; */
+     width: 100%;
+     min-height: 55rem;
+}
+
+.VideoFrame .title{
+     font-size: 2rem;
+     padding: 1rem 0;
+}
+
+.VideoFrame p{
+     font-size: 1.5rem;
+     padding: 1rem 0;
+     color: var(--text-second-color);
+}
+
+.VideoFrame .channel{
+     font-size: 1.8rem;
+     padding: 1rem 0;
+}
+
+.VideoFrame iframe body {
+     width: 100%;
+     height: 100%;
+}
 
 /* responsive breakpoints less than 5200px  */
 
@@ -370,11 +415,19 @@ html {
      .VideosContainer {
           grid-template-columns: 1fr;
      }
+
+     .VideoFrame iframe {
+          min-height: 45rem;
+     }
 }
 
 @media (width<480px) {
      .HomeVideos .down .title {
           font-size: 1.8rem;
+     }
+
+     .VideoFrame iframe {
+          min-height: 35rem;
      }
 }
 

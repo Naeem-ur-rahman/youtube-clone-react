@@ -10,6 +10,11 @@ function App() {
     setMenuClick(!menuClick)
   }
 
+  const [logoClick, setLogoClick] = useState(false);
+  const getLogoClick = (value) => {
+    setLogoClick(value)
+  }
+
   const [query, setQuery] = useState('');
 
   const getQuery = (q) => {
@@ -19,8 +24,8 @@ function App() {
 
   return (
     <div className='App'>
-      <HEADER toggleMenuClick={toggleMenuClick} getQuery={getQuery} />
-      <Main menuClick={menuClick} toggleMenuClick={toggleMenuClick} query={query} />
+      <HEADER toggleMenuClick={toggleMenuClick} getQuery={getQuery} getLogoClick={getLogoClick} />
+      <Main menuClick={menuClick} toggleMenuClick={toggleMenuClick} query={query} logoClick={logoClick} />
     </div>
   );
 }

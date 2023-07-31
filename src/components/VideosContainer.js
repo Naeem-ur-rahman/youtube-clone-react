@@ -18,8 +18,8 @@ export class VideosContainer extends Component {
                {
                     params: {
                          part: 'snippet',
-                         maxResults: 10,
-                         key: 'AIzaSyCKZXldwH1a_Bceg1u4ECMXbsxcrzoQJDY',
+                         maxResults: 5,
+                         key: 'AIzaSyDgAiReDBEFOSYKPXpeBRX_jwPevGJaYvA',
                          q: this.state.q
                     }
                }).catch(err => {
@@ -46,8 +46,8 @@ export class VideosContainer extends Component {
                     {
                          params: {
                               part: 'snippet',
-                              maxResults: 10,
-                              key: 'AIzaSyCKZXldwH1a_Bceg1u4ECMXbsxcrzoQJDY',
+                              maxResults: 5,
+                              key: 'AIzaSyDgAiReDBEFOSYKPXpeBRX_jwPevGJaYvA',
                               q: this.props.query
                          }
                     }).catch(err => {
@@ -66,11 +66,12 @@ export class VideosContainer extends Component {
      }
 
      render() {
+          const { getSelectedVideo } = this.props
           if (this.state.videos) {
                return (
                     <div className='VideosContainer'>
                          {
-                              this.state.videos.map((video, index) => <HomeVideos key={`${video.id.videoId}${index}`} video={video} />)
+                              this.state.videos.map((video, index) => <HomeVideos key={`${video.id.videoId}${index}`} video={video} getSelectedVideo={getSelectedVideo} />)
                          }
                     </div>
                )

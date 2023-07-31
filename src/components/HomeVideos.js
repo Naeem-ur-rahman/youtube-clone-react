@@ -1,7 +1,7 @@
 import React from 'react'
 
-function HomeVideos({ video }) {
-     const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`
+function HomeVideos({ video, getSelectedVideo }) {
+     //const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`
      const title = video.snippet.title
      const channelTitle = video.snippet.channelTitle
      return (
@@ -10,7 +10,7 @@ function HomeVideos({ video }) {
                     <img src={video.snippet.thumbnails.high.url} alt='img'></img>
                </div>
                <div className='down'>
-                    <a href={videoSrc} className='title'> {title} </a>
+                    <p onClick={() => getSelectedVideo(video, true)} className='title'> {title} </p>
                     <p>{channelTitle}</p>
                     <p></p>
                </div>
